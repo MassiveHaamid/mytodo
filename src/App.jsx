@@ -5,7 +5,7 @@ import './styles/App.css';
 const initialTodos = [
   { id: 1, name: 'Task 1', description: 'Description 1', status: 'not completed' },
   { id: 2, name: 'Task 2', description: 'Description 2', status: 'completed' },
-  // Add more initial todos if needed
+  { id: 3, name: 'Task 3', description: 'Description 3', status: 'not completed' },
 ];
 
 const App = () => {
@@ -58,35 +58,40 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>Todo App</h1>
+      <h1>My todo</h1>
+<div><br />
+  <form
+    className="todo-form"
+    onSubmit={(e) => {
+      e.preventDefault();
+      const name = e.target.name.value;
+      const description = e.target.description.value;
+      addTodo(name, description);
+      e.target.reset();
+    }}
+  >
+    <div className="input-row">
+      <label htmlFor="name"></label>
+      <input type="text" id="name" name="name" placeholder="Todo Name" required />
+      <label htmlFor="description"></label>
+      <input type="text" id="description" name="description" placeholder="Todo Description" required />
+      <button type="submit">Add Todo</button>
+    </div>
+  </form>
+</div><br /><br />
       <div>
-        <label htmlFor="filter">Filter:</label>
-        <select id="filter" onChange={(e) => setFilter(e.target.value)}>
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="not completed">Not Completed</option>
-        </select>
-      </div>
-      <div>
-        <h2>Add Todo</h2>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const name = e.target.name.value;
-            const description = e.target.description.value;
-            addTodo(name, description);
-            e.target.reset();
-          }}
-        >
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-          <label htmlFor="description">Description:</label>
-          <input type="text" id="description" name="description" required />
-          <button type="submit">Add Todo</button>
-        </form>
-      </div>
-      <div>
-        <h2>Todos</h2>
+      <div className="todos">
+  <h2>My Todos</h2>
+  <div className="filter">
+    <label htmlFor="filter">Filter:</label>
+    <select id="filter" onChange={(e) => setFilter(e.target.value)}>
+      <option value="all">All</option>
+      <option value="completed">Completed</option>
+      <option value="not completed">Not Completed</option>
+    </select>
+  </div>  
+</div><br /><br />
+<div className="todo-cards">
         {filterTodos().map((todo) => (
           <div className="todo-card" key={todo.id}>
             {editingTodo === todo.id ? (
@@ -107,14 +112,17 @@ const App = () => {
                 <select id={`status${todo.id}`} value={todo.status} onChange={(e) => updateTodoStatus(todo.id, e.target.value)}>
                   <option value="completed">Completed</option>
                   <option value="not completed">Not Completed</option>
-                </select>
-                <button onClick={() => startEditing(todo.id)}>Edit</button>
-                <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+                </select><br /><br />
+                <div className="button-group">
+      <button onClick={() => startEditing(todo.id)}>Edit</button>
+      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+    </div>
               </>
             )}
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

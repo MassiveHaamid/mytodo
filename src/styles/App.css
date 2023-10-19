@@ -1,33 +1,82 @@
 /* App.css */
 .app {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h2 {
-    margin-bottom: 10px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  
-  form label,
-  form input,
-  form button {
-    margin-bottom: 10px;
-  }
-  
-  .todo-card {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    cursor: pointer;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #13ad89;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+form label,
+form input,
+form button {
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+color: white;
+background-color: #13ad89;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px; /* Adjust the space between buttons as needed */
+}
+
+.todos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  margin: 0; /* Remove the default margin for h2 */
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+}
+
+.todo-cards {
+  display: flex;
+}
+
+.todo-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Added margin to separate input rows */
+}
+
+.input-row label {
+  margin-right: 10px;
+}
+
+.input-row input {
+  border-color: #13ad89;
+  margin-right: 10px;
+}
+
+.filter label {
+  margin-right: 10px;
+}
