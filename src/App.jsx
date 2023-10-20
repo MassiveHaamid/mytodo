@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
 const initialTodos = [
-  { id: 1, name: 'Task 1', description: 'Description 1', status: 'not completed' },
-  { id: 2, name: 'Task 2', description: 'Description 2', status: 'completed' },
-  { id: 3, name: 'Task 3', description: 'Description 3', status: 'not completed' },
+  { id: 1, name: 'Office Task-1', description: 'this is the description for my first task', status: 'not completed' },
+  { id: 2, name: 'Office Task-2', description: 'this is the description for my second task', status: 'completed' },
+  { id: 3, name: 'Office Task-3', description: 'this is the description for my third task', status: 'not completed' },
 ];
 
 const App = () => {
@@ -77,15 +77,18 @@ const App = () => {
       <input type="text" id="name" name="name" placeholder="Todo Name" required />
       <label htmlFor="description"></label>
       <input type="text" id="description" name="description" placeholder="Todo Description" required />
-      <button type="submit">Add Todo</button>
+      <Button variant="success" type="submit">Add Todo</Button>
     </div>
   </form>
 </div><br /><br />
       <div className="todos">
   <h2>My Todos</h2>
   <div className="filter">
-    <label htmlFor="filter">Filter:</label>
-    <select id="filter" onChange={(e) => setFilter(e.target.value)}>
+    <label htmlFor="filter">Status Filter :</label>
+    <select id="filter" onChange={(e) => setFilter(e.target.value)} style={{
+    backgroundColor: filter === 'all' ? 'red' : 'initial', // Set to red if 'all' is selected
+    color: 'white', // Set text color to white
+  }}>
       <option value="all">All</option>
       <option value="completed">Completed</option>
       <option value="not completed">Not Completed</option>
@@ -101,18 +104,23 @@ const App = () => {
                 <input type="text" id={`editName${todo.id}`} defaultValue={todo.name} />
                 <label htmlFor={`editDescription${todo.id}`}>Edit Description:</label>
                 <input type="text" id={`editDescription${todo.id}`} defaultValue={todo.description} />
-                <button onClick={() => saveEdit(todo.id, document.getElementById(`editName${todo.id}`).value, document.getElementById(`editDescription${todo.id}`).value)}>
+                <Button variant="success" onClick={() => saveEdit(todo.id, document.getElementById(`editName${todo.id}`).value, document.getElementById(`editDescription${todo.id}`).value)}>
                   Save
-                </button>
+                </Button>
               </>
             ) : (
               <>
                 <h3>{todo.name}</h3>
                 <p>{todo.description}</p>
                 <label htmlFor={`status${todo.id}`}>Status:</label>
-                <select id={`status${todo.id}`} value={todo.status} onChange={(e) => updateTodoStatus(todo.id, e.target.value)}>
-                  <option className="clr" value="completed">Completed</option>
-                  <option className="clr1" value="not completed">Not Completed</option>
+                <select
+                id={`status${todo.id}`}
+                value={todo.status}
+                onChange={(e) => updateTodoStatus(todo.id, e.target.value)}
+                style={{ backgroundColor: todo.status === 'completed' ? 'green' : 'red', color: 'white', }}
+                >
+                <option value="completed">Completed</option>
+                <option value="not completed">Not Completed</option>
                 </select><br /><br />
                 <div className="button-group">
                 <Button variant="success" onClick={() => startEditing(todo.id)}>Edit</Button>

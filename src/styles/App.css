@@ -60,6 +60,7 @@ color: white;
   border: 1px solid #ccc;
   padding: 5px;
   margin-right: 10px;
+  background-color: #ccf5d3;
 }
 
 .input-row {
@@ -88,3 +89,13 @@ color: white;
 .clr1 {
   background-color: red;
 }
+
+/* Add your custom styles as needed */
+.green-background {
+  background-color: #12ae8a;
+}
+
+.red-background {
+  background-color: #fe7f81;
+}
+
