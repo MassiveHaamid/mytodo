@@ -27,11 +27,11 @@ form button {
 }
 
 #name{
-width: 250px;
+width: 400px;
 }
 
 #description{
-  width: 250px;
+  width: 400px;
   }
 
   .btn-success {
@@ -45,6 +45,8 @@ color: white;
 
 .button-group {
   display: flex;
+  width: 150px;
+  margin-right: 100px;
   gap: 15px; /* Adjust the space between buttons as needed */
 }
 
