@@ -27,9 +27,8 @@ form button {
 }
 
 button {
-  cursor: pointer;
+cursor: pointer;
 color: white;
-background-color: #13ad89;
 }
 
 .button-group {
@@ -54,11 +53,12 @@ background-color: #13ad89;
 
 .todo-cards {
   display: flex;
+  justify-content: space-between;
 }
 
 .todo-card {
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 5px;
   margin-right: 10px;
 }
 
@@ -79,4 +79,12 @@ background-color: #13ad89;
 
 .filter label {
   margin-right: 10px;
+}
+
+.clr {
+  background-color: #13ad89;
+}
+
+.clr1 {
+  background-color: red;
 }

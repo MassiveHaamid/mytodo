@@ -1,6 +1,8 @@
 // App.jsx
 import React, { useState } from 'react';
 import './styles/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 const initialTodos = [
   { id: 1, name: 'Task 1', description: 'Description 1', status: 'not completed' },
@@ -79,7 +81,6 @@ const App = () => {
     </div>
   </form>
 </div><br /><br />
-      <div>
       <div className="todos">
   <h2>My Todos</h2>
   <div className="filter">
@@ -110,12 +111,13 @@ const App = () => {
                 <p>{todo.description}</p>
                 <label htmlFor={`status${todo.id}`}>Status:</label>
                 <select id={`status${todo.id}`} value={todo.status} onChange={(e) => updateTodoStatus(todo.id, e.target.value)}>
-                  <option value="completed">Completed</option>
-                  <option value="not completed">Not Completed</option>
+                  <option className="clr" value="completed">Completed</option>
+                  <option className="clr1" value="not completed">Not Completed</option>
                 </select><br /><br />
                 <div className="button-group">
-      <button onClick={() => startEditing(todo.id)}>Edit</button>
-      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+                <Button variant="success" onClick={() => startEditing(todo.id)}>Edit</Button>
+                <Button variant="danger" onClick={() => deleteTodo(todo.id)}>Delete</Button>
+      {/* <Button variant="success">Success</Button> */}
     </div>
               </>
             )}
@@ -123,8 +125,7 @@ const App = () => {
         ))}
       </div>
     </div>
-    </div>
-  );
+);
 };
 
 export default App;
