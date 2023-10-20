@@ -26,6 +26,18 @@ form button {
   margin-bottom: 10px;
 }
 
+#name{
+width: 250px;
+}
+
+#description{
+  width: 250px;
+  }
+
+  .btn-success {
+    width: 150px;
+  }
+
 button {
 cursor: pointer;
 color: white;
